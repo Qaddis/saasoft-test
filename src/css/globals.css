@@ -1,0 +1,12 @@
+/* - Подготовка к стилизации - */
+
+/* Сброс дефолтных стилей */
+@import url("./reset.css");
+
+/* Шрифты */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* - Стилизация - */
+html {
+	font-size: 16px;
+}

@@ -59,6 +59,10 @@ const addNewAccount = (): void => {
 					:data="item"
 					:index="index"
 				/>
+
+				<h2 v-if="accounts.length === 0" class="no-accounts">
+					Учётные записи отсутствуют
+				</h2>
 			</div>
 		</div>
 	</main>
@@ -113,5 +117,13 @@ const addNewAccount = (): void => {
 	grid-template-columns: 1fr 0.65fr 1fr 1.2fr;
 	gap: 0 15px;
 	margin-bottom: 7.5px;
+}
+
+.no-accounts {
+	font-family: var(--heading-font);
+	font-size: 1.35rem;
+	text-align: center;
+	opacity: 0.75;
+	margin-top: 20px;
 }
 </style>

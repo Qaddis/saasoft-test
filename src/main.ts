@@ -1,7 +1,9 @@
 import { createApp } from "vue"
 
 import Aura from "@primeuix/themes/aura"
+import 'primeicons/primeicons.css'
 import PrimeVue from "primevue/config"
+
 
 import { createPinia } from "pinia"
 import persistPlugin from "pinia-plugin-persistedstate"

@@ -8,3 +8,4 @@ export interface IAccount {
 export type MarksType = { text: string }[]
 
 export const TypesEnum = ["LDAP", "Локальная"] as const
+export const types = [...TypesEnum]

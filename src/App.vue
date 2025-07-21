@@ -1,6 +1,22 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia"
 import Button from "primevue/button"
+
 import Account from "./components/Account.vue"
+import { useAccountsStore } from "./stores/account.store"
+
+const accountsStore = useAccountsStore()
+const { accounts } = storeToRefs(accountsStore)
+
+// Функция для создания нового аккаунта
+const addNewAccount = (): void => {
+	accountsStore.accounts.push({
+		marks: [],
+		login: "",
+		type: "LDAP",
+		password: null
+	})
+}
 </script>
 
 <template>
@@ -9,7 +25,12 @@ import Account from "./components/Account.vue"
 			<div class="row">
 				<h1 class="heading">Учетные записи</h1>
 
-				<Button icon="pi pi-plus" severity="contrast" variant="outlined" />
+				<Button
+					@click="addNewAccount"
+					icon="pi pi-plus"
+					severity="contrast"
+					variant="outlined"
+				/>
 			</div>
 
 			<p class="hint">
@@ -20,8 +41,6 @@ import Account from "./components/Account.vue"
 					разделитель ;
 				</span>
 			</p>
-
-			<hr class="separator" />
 
 			<div class="labels">
 				<p>Метки</p>
@@ -34,7 +53,12 @@ import Account from "./components/Account.vue"
 			</div>
 
 			<div class="accounts">
-				<Account />
+				<Account
+					v-for="(item, index) in accounts"
+					:key="index"
+					:data="item"
+					:index="index"
+				/>
 			</div>
 		</div>
 	</main>

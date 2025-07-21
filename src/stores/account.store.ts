@@ -18,7 +18,7 @@ export const useAccountsStore = defineStore("accounts", {
 		update(id: number, data: IAccount) {
 			this.accounts[id] = {
 				...data,
-				password: data.types === "LDAP" ? null : data.password
+				password: data.type === "LDAP" ? null : data.password
 			}
 		}
 	},
